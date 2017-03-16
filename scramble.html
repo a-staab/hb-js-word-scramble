@@ -9,8 +9,6 @@
     <script>
 
         function getRandomIntInclusive(min, max) {
-            min = Math.ceil(min);
-            max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1)) + min;
             }
 
@@ -24,7 +22,6 @@
             var randomIndex = getRandomIntInclusive(0, 4);
             var randomWord = WORDS[randomIndex];
             var randomScrambled = SCRAMBLED[randomIndex];
-            // alert("Here is your scrambled word: " + randomScrambled);
             var guess = prompt("Here is your scrambled word: " + randomScrambled + 
                 ". \n\nWhat's your unscrambled word?");
             if (guess===randomWord) {
