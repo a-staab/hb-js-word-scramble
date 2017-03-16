@@ -7,27 +7,33 @@
     <h1>A Javascript Word Scramble Game</h1>
 
     <script>
-        var WORDS     = ["booger", "apple", "hackbright", "mango"];
-        var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+        var WORDS     = ["apple", "hackbright", "mango", "strawberry", "hut"];
+        var SCRAMBLED = ["papel", "backrhight", "goman", "berswarytr", "thu"];
 
         var playing = true;
 
         while (playing) {
 
-            // Grab a random word from the WORDS array.
-
-            // Grab the corresponding scrambled word from the SCRAMBLED array.
-
-            // Prompt the user to guess the original word when given the scrambled word.
-
-            // If the user guesses wrong, tell them they were wrong and show the right word.
-            
-            // If the user guesses the correct word, congratulate them.
+            var randomIndex = getRandomIntInclusive(0, 4);
+            var randomWord = WORDS[randomIndex];
+            var randomScrambled = SCRAMBLED[randomIndex];
+            // alert("Here is your scrambled word: " + randomScrambled);
+            var guess = prompt("Here is your scrambled word: " + randomScrambled + 
+                ". \n\nWhat's your unscrambled word?");
+            if (guess===randomWord) {
+                alert("Congratulations, you guessed the word correctly.");
+            } else {
+                alert("Sorry, that's incorrect. The answer is " + randomWord + "."); 
+            }
 
             playing = confirm("Press OK To keep playing or Cancel to quit");
-
-            // What does confirm() return?
-            // What does setting the playing variable do?
         }
 
         alert("goodbye!");
